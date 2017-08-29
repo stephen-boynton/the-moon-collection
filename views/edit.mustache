@@ -1,0 +1,14 @@
+{{>_header}}
+  <h2>Add a New Moon</h2>
+  {{#thisMoon}}
+  <form class="newmoon" action="/editmoon" method="POST">
+    <input class="moonId" type="text" name="id" value="{{_id}}" readonly>
+    <input type="text" name="img" value="{{img}}" >
+    <input type="text" name="name" value="{{name}}">
+    <input type="text" name="planet" value="{{planet}}">
+    <input type="text" name="size" value="{{size}}">
+    <input type="text" name="year" value="{{date}}">
+    <button type="submit" name="button">Edit Moon</button>
+  </form>
+  {{/thisMoon}}
+{{>_footer}}

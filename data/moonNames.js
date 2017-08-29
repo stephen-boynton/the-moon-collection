@@ -32,6 +32,7 @@ module.exports = [
 	"Iapetus",
 	"Phoebe",
 	"Janus",
+	"Epimetheus",
 	"Helene",
 	"Telesto",
 	"Calypso",

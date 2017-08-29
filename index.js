@@ -4,7 +4,14 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const mustacheExpress = require("mustache-express");
 const fs = require("fs");
-const { getMoon, getAllMoons, addMoon } = require("./dal");
+const {
+	getMoon,
+	getAllMoons,
+	getMoonID,
+	addMoon,
+	updateMoon,
+	deleteMoon
+} = require("./dal");
 
 app.engine("mustache", mustacheExpress());
 app.set("view engine", "mustache");
@@ -28,6 +35,8 @@ function moonExists(req, res, next) {
 	}
 }
 
+function moonIDer(req, res, next) {}
+
 app.get("/", (req, res) => {
 	getAllMoons().then(moons => {
 		res.render("index", { moons });
@@ -48,6 +57,29 @@ app.get("/moon/:name", (req, res) => {
 	getMoon(req.params.name).then(thisMoon => {
 		res.render("moon", { thisMoon });
 	});
+});
+
+app.get("/moon/:name/edit", (req, res) => {
+	getMoon(req.params.name).then(thisMoon => {
+		res.render("edit", { thisMoon });
+	});
+});
+
+app.get("/moon/:name/delete", (req, res) => {
+	getMoonID(req.params.name)
+		.then(moonID => {
+			console.log(moonID);
+			deleteMoon(moonID);
+		})
+		.then(() => {
+			res.redirect("/");
+		});
+});
+
+app.post("/editmoon", (req, res) => {
+	const moon = req.body;
+	updateMoon(moon);
+	res.redirect("/");
 });
 
 //your routes
