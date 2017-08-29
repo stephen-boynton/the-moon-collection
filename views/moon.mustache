@@ -1,0 +1,21 @@
+{{>_header}}
+<div class="container">
+  {{#thisMoon}}
+  <div class="card">
+  {{#img}}
+  <img class="card-img-top" src="{{img}}" alt="Card image cap">
+  {{/img}}
+  {{^img}}
+    <h5 class="no-image">No Image Available</h5>
+    {{/img}}
+  <div class="card-block">
+    <h3>{{name}}</h3>
+    <p class="card-text">Host Planet: {{planet}}</p>
+    <p class="card-text">Sibling Moons: {{#siblings}}{{.}}, {{/siblings}}</p>
+    <p class="card-text">Size: {{size}} km</p>
+    <p class="card-text">Year Discovered: {{date}}</p>
+  </div>
+  </div>
+  {{/thisMoon}}
+</div>
+{{>_footer}}

@@ -1,0 +1,12 @@
+{{>_header}}
+  <div class="container">
+
+    {{#moons}}
+    <div class="card" style="width:20rem;">
+      <a href="/moon/{{name}}">
+      {{>_individual}}
+    </a>
+    </div>
+    {{/moons}}
+  </div>
+{{>_footer}}

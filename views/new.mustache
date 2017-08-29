@@ -1,0 +1,11 @@
+{{>_header}}
+  <h2>Add a New Moon</h2>
+  <form class="newmoon" action="/newmoon/new" method="POST">
+    <input type="text" name="img" value=""  placeholder="Image URL" autofocus="true">
+    <input type="text" name="name" value="" placeholder="Name of Moon">
+    <input type="text" name="planet" value="" placeholder="Host Planet">
+    <input type="text" name="size" value="" placeholder="Size">
+    <input type="text" name="year" value="" placeholder="Year Discovered">
+    <button type="submit" name="button">Submit Moon</button>
+  </form>
+{{>_footer}}
